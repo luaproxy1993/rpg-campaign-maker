@@ -1,0 +1,6 @@
+{
+  "formula": "attr + skill",
+  "hard": 4,
+  "mixed": 2,
+  "degrees": ["fail", "mixed", "success"]
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{SLUG}}</title>
+  <link rel="stylesheet" href="play/styles.css?v=1" />
+</head>
+<body>
+  <div id="stage">
+    <div id="bg" class="bg"></div>
+    <img id="speaker" class="speaker hidden" alt="" />
+    <div class="icons">
+      <button type="button" class="icon" id="btn-sheet" title="Sheet">📖</button>
+    </div>
+    <aside id="sheet" class="sheet hidden"></aside>
+    <div class="panel">
+      <div id="nameplate" class="nameplate hidden"></div>
+      <article id="story" class="story"></article>
+      <div id="dice" class="dice hidden"></div>
+      <nav id="choices" class="choices"></nav>
+      <button type="button" id="btn-continue" class="continue hidden">CONTINUE</button>
+    </div>
+    <button type="button" id="btn-reset" class="reset">Restart</button>
+  </div>
+  <script src="play/sheet.js?v=1" defer></script>
+  <script src="play/story.js?v=1" defer></script>
+  <script src="play/app.js?v=1" defer></script>
+</body>
+</html>

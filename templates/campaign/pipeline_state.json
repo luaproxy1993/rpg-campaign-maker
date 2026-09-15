@@ -1,0 +1,8 @@
+{
+  "skill": "rpg-campaign-maker",
+  "skill_version": "1.1.0",
+  "slug": "{{SLUG}}",
+  "intake": "original",
+  "step": "C0",
+  "status": "in_progress"
+}

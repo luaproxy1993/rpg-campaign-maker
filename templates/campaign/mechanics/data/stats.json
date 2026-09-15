@@ -1,0 +1,11 @@
+{
+  "attributes": ["strength", "dexterity", "stamina", "charisma", "manipulation", "composure", "intelligence", "wits", "resolve"],
+  "skills": ["athletics", "combat", "drive", "persuasion", "subterfuge", "awareness", "investigation", "survival", "technology"],
+  "start": {
+    "attributes": 1,
+    "skills": 0,
+    "drive": 1,
+    "health": 5,
+    "healthMax": 5
+  }
+}
