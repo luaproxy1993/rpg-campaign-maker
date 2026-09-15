@@ -19,8 +19,8 @@ npx skills add /absolute/path/to/rpg-campaign-maker -y
 # Target specific agents
 npx skills add /absolute/path/to/rpg-campaign-maker --agent claude-code --agent cursor -y
 
-# After you push to GitHub
-npx skills add <you>/rpg-campaign-maker -y
+# From GitHub
+npx skills add luaproxy1993/rpg-campaign-maker -y
 ```
 
 Manual:

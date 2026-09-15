@@ -8,11 +8,11 @@ npx skills add /path/to/rpg-campaign-maker -y
 
 The `skills` CLI copies `SKILL.md` into whichever coding agents it detects (Claude Code, Cursor, Codex, OpenCode, …).
 
-After you publish the folder as a GitHub repo:
+From GitHub:
 
 ```bash
-npx skills add <owner>/rpg-campaign-maker -y
-npx skills add <owner>/rpg-campaign-maker --agent claude-code --agent cursor -g -y
+npx skills add luaproxy1993/rpg-campaign-maker -y
+npx skills add luaproxy1993/rpg-campaign-maker --agent claude-code --agent cursor -g -y
 ```
 
 ## Manual copy
