@@ -4,12 +4,14 @@ description: >-
   Turn a short RPG campaign slice — original or a dropped campaign book —
   into a playable one-sitting game. Covers campaign lock, nested choice trees,
   stats/checks/items, engine-ready art (chroma, per-scene FX), original-voice
-  copy, CC audio, a static play shell, and in-sitting photo/voice/video as a
-  clip-library on the tree. Use when the user runs /rpg-campaign-maker, says
-  "make a campaign", "campaign book", "ChoiceScript", "adventure path",
-  "one-shot RPG", "short campaign", "drag this module in", or wants a playable
-  AVG/RPG from a PDF, .txt, Foundry, or World of Darkness book. Not for
-  dating-sim calendars, grid crawls, companion OS (Candy-class chat+live
+  copy, CC audio, a playable shell, and in-sitting photo/voice/video as a
+  clip-library on the tree. For product_form doki-mesh-world, C3 mounts a content
+  pack on the existing DokiDemo GameShell (frame-by-frame parity with the shipped
+  Strahd AVG) and C5 cannot accept a thinner paper shell. Use when the user runs
+  /rpg-campaign-maker, says "make a campaign", "campaign book", "ChoiceScript",
+  "adventure path", "one-shot RPG", "short campaign", "drag this module in", or
+  wants a playable AVG/RPG from a PDF, .txt, Foundry, or World of Darkness book.
+  Not for dating-sim calendars, grid crawls, companion OS (Candy-class chat+live
   video), or digital-human R1.
 ---
 
@@ -17,7 +19,11 @@ description: >-
 
 A **slice** is not a skeleton. Fun in a one-sitting RPG comes from nested **tree**, real **checks**, and **engine-ready** pictures — not from a linear smash-through with placeholder art.
 
-This skill ships a playable static game (`index.html` + `play/` + `assets/`). Optional later: wrap as a Dokiworld pack via `doki-game-maker`. Do not start there.
+This skill ships a playable sitting. **Product form decides the shell** (`docs/INTENT.md` `product_form`, or the accepted lock if it recorded one):
+
+- `static-campaign-sitting` (default when no mesh/Doki world was chosen): a static game (`index.html` + `play/` + `assets/`). Optional later: wrap as a Dokiworld pack via `doki-game-maker`. Do not start there.
+- `doki-mesh-world` (Barovia-quality narrative worlds, not Barovia content): C0–C2 still lock the sitting here; C3 **mounts a content pack on the existing DokiDemo GameShell**. Do not start by writing a new `index.html` / walk-look-talk page. See C3.
+- Other forms stay on their own conductors (`screenshot-first-idle` → `game-maker-pipeline`; Godot 2D → `build-a-game`). This skill is not their shell.
 
 ## Product formula
 
@@ -145,13 +151,26 @@ One-layer "A/B/C then next scene" is not a campaign. If the source has MOS / cla
 
 ## C3 · Shell
 
-**Done when** `python3 -m http.server` from the campaign root opens a playable first scene in the **source language**, with the layout the author pointed at (not a generic VN unless they asked for one).
+Load `references/SHELL.md`. The done-when depends on `product_form`.
 
-Load `references/SHELL.md`.
+### `doki-mesh-world`
+
+**Done when** the sitting is a content pack **mounted on the existing DokiDemo GameShell**, and a cold load on that shell is at **frame-by-frame parity** with the already-shipped Strahd AVG running on the same shell: full-bleed scene plates, dialogue two-shots, intro reel, BGM, HUD, in the locked play language (`docs/LOCK.md`; fall back to the source language if none is locked).
+
+The default named shell is `/Users/a123/grokmaker/campaigns/DokiDemo` (or a git worktree of that repo, e.g. `DokiDemo-brew`). Use that shell, or a worktree of it — not a replacement page that looks thinner.
+
+- Do **not** create a new `index.html` / walk-look-talk page, even if DokiDemo is not on the current machine. **Stop and get the shell. Do not substitute.** A box with no Doki engine is not a reason to write a paper shell. Opening the first scene over local HTTP is **not** done.
+- Cache-bust `?v=` on every script and asset URL after visual changes.
+- Copy is **original-voice** in the locked play language. Do not silently switch languages. Invented translation is a bug, not a draft.
+- Julian-class error: a flashback NPC must not sit in the live speaker slot.
+
+### Other product forms this skill still shells (`static-campaign-sitting`)
+
+**Done when** `python3 -m http.server` from the campaign root opens a playable first scene in the **locked play language** (`docs/LOCK.md`; fall back to the source language if none is locked), with the layout the author pointed at (not a generic VN unless they asked for one).
 
 - Root `index.html` is the entry.
 - Cache-bust `?v=` on every script and asset URL after visual changes.
-- Copy is **original-voice**. Invented translation is a bug, not a draft.
+- Copy is **original-voice** in the locked play language. Do not silently switch languages. Invented translation is a bug, not a draft.
 - Julian-class error: a flashback NPC must not sit in the live speaker slot.
 
 **STOP** — `step C3: accept`
@@ -178,7 +197,7 @@ Iron rules, from a real slice:
 
 ## C5 · Playtest
 
-**Done when** the 3-minute accept sentence is true on a cold load, and the author has walked the deepest nested branch once.
+**Done when** the 3-minute accept sentence is true on a cold load, the author has walked the deepest nested branch once, **and** (for `doki-mesh-world`) the running pack passes the **reference-shell parity** gate below. A sitting that only opens a first scene over local HTTP, or that plays in a thinner / paper walk-look-talk shell, is not a C5 accept.
 
 Load `references/CHECKLIST.md`. Hit:
 
@@ -188,6 +207,11 @@ Load `references/CHECKLIST.md`. Hit:
 - No pink fringe on portraits over the real background
 - Hard-refresh after asset changes (`?v=` bumped)
 - Media beats (if any) play from `assets/media/`; `play/` calls no generator
+
+For `doki-mesh-world` also hit:
+
+- The pack is mounted on the named DokiDemo GameShell (see C3). Compare the running pack to the already-shipped Strahd AVG on that same shell: full-bleed scene plates, dialogue two-shots, intro reel, BGM, HUD. Paths, loading, or assets without this visual parity is not a pass — including an internal preview.
+- Placeholder VO (`edge-tts` and the like) may be accepted on this playtest for an **internal preview** only. It cannot be a public `ship: accept`. `/world-ship-qa` must keep that distinction.
 
 **STOP** — `step C5: accept`
 

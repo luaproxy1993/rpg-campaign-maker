@@ -1,6 +1,12 @@
 # Play shell
 
-The shell is the game. A pack of JSON without a playable `index.html` is a design doc.
+The shell is the game. A pack of JSON without a playable surface is a design doc.
+
+**Product form decides which shell.** Read `docs/INTENT.md` `product_form` (or the accepted lock if it recorded one) before writing files.
+
+- `doki-mesh-world`: mount a content pack on the **existing DokiDemo GameShell**. The default named shell is `/Users/a123/grokmaker/campaigns/DokiDemo` (or a git worktree of that repo, e.g. `DokiDemo-brew`). The quality bar is frame-by-frame parity with the already-shipped Strahd AVG on that same shell: full-bleed scene plates, dialogue two-shots, intro reel, BGM, HUD. Do **not** create a new `index.html` / walk-look-talk page, even if DokiDemo is missing on this machine — stop and get the shell, don't substitute. Opening a first scene over local HTTP is not done.
+- `static-campaign-sitting`: the scaffold below (`index.html` + `play/` + `assets/`) is the shell.
+- Leave other product forms alone (`screenshot-first-idle` still uses `game-maker-pipeline`; Godot 2D still uses `build-a-game`).
 
 ## Layout
 

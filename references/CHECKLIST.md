@@ -30,5 +30,7 @@ Walk this at C5. Unchecked items fail the sitting.
 
 ## Ship
 
-- [ ] `python3 -m http.server` from campaign root plays the first scene
+- [ ] For `static-campaign-sitting`: `python3 -m http.server` from campaign root plays the first scene
+- [ ] For `doki-mesh-world`: the pack is mounted on the named DokiDemo GameShell and matches the shipped Strahd AVG on that shell (full-bleed plates, dialogue two-shots, intro reel, BGM, HUD). A thinner / paper walk-look-talk page, or “HTTP opened the first scene,” is not a pass — including an internal preview.
+- [ ] Placeholder VO (`edge-tts` etc.) may ride an internal preview; it cannot be a public `ship: accept`
 - [ ] `dist/` has no keys, no `node_modules`, no `_raw`
